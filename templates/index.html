@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{username}}
+{% endblock %}
+
+{% block main %}
+        <p class="welcome">Get ready for some delicious matches, {{username}}!</p>
+        <div class="card">
+            <img src={{ image }} width="100%" height="auto">
+            <div class="title">
+                <div class="title-child">
+                    <p>{{ title }}</p>
+                    <i class="fas fa-chevron-down"></i><br>
+                </div>
+                <div class="description">
+                    <p><b>ready in {{ lookup_details['results']['readyInMinutes'] }} minutes | health score: {{ lookup_details['results']['healthScore']% }}</b></p>
+                    <p>{{ lookup_details['results']['summary']|safe }}</p>
+                </div>
+            </div>
+
+            <div class="like-stamp">
+                <p>LIKE</p>
+            </div>
+            <div class="nope-stamp">
+                <p>NOPE</p>
+            </div>
+        </div>
+
+        <form action="/" method="post">
+            <div class="swipe-buttons">
+                <i id="dislike" class="fas fa-times"></i>
+                <i id="like" class="fas fa-heart"></i>
+            </div>
+        </form>
+{% endblock %}

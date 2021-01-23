@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+            <form class="card" action="/register" method="post">
+                <div class="form-group">
+                    <input id="first-form-control" autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" name="password" placeholder="Password" type="password">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" name="confirmation" placeholder="Password (again)" type="password">
+                </div>
+                <button class="btn btn-primary" type="submit">Register</button>
+            </form>
+            <div class="container-card-p">
+                <p class="card-p">Already have an account? Go to <a href="/login">Log In</a></p>
+            </div>
+{% endblock %}
+
+
+
+

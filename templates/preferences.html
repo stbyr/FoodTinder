@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Food preferences
+{% endblock %}
+
+{% block main %}
+            <form class="card" action="/preferences" method="post">
+                <h3 id="first-form-control">Welcome to food tinder!</h3>
+                <p>Do you have any special preferences concerning your food suggestions?</p>
+
+                <div class="card-inside-container">
+                    <div class="form-group-pref">
+                        <label for="vegetarian">Vegetarian</label>
+                        <input autocomplete="off" autofocus class="form-control" id="vegetarian" name="diet" value="vegetarian" type="checkbox">
+                    </div>
+
+                    <div class="form-group-pref">
+                        <label for="vegan">Vegan</label>
+                        <input autocomplete="off" autofocus class="form-control" id="vegan" name="diet" value="vegan" type="checkbox">
+                    </div>
+
+                    <div class="form-group-pref">
+                        <label for="glutenfree">Gluten Free</label>
+                        <input autocomplete="off" autofocus class="form-control" id="glutenfree" name="diet" value="glutenFree" type="checkbox">
+                    </div>
+
+                    <div class="form-group-pref">
+                        <label for="paleo">Dairy free</label>
+                        <input autocomplete="off" autofocus class="form-control" id="dairyfree" name="diet" value="dairyFree" type="checkbox">
+                    </div>
+
+                    <div class="form-group-pref">
+                        <label for="lowcarb">Ketogenic</label>
+                        <input autocomplete="off" autofocus class="form-control" id="keto" name="diet" value="ketogenic" type="checkbox">
+                    </div>
+
+                    <div class="form-group-pref">
+                        <label for="nodiet">Nothing special!</label>
+                        <input autocomplete="off" autofocus class="form-control" id="nodiet" name="diet" value="nodiet" type="checkbox">
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Get suggestions</button>
+            </form>
+{% endblock %}
+
+
+
+

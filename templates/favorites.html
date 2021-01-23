@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My favorites
+{% endblock %}
+
+{% block main %}
+        {% for lookup_detail in lookup_details %}
+        <div class="fav">
+            <img src={{ lookup_detail['results']['image'] }} width="auto" height="100%">
+            <div class="title-fav">
+                <div class="title-child">
+                    <p class="small">{{ lookup_detail['results']['title'] }}</p>
+                </div>
+                <div class="description-fav">
+                    <p class="details">ready in {{ lookup_detail['results']['readyInMinutes'] }} minutes | health score: {{ lookup_detail['results']['healthScore']% }}</p>
+                    <p>{{ lookup_detail['results']['summary']|safe }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+{% endblock %}

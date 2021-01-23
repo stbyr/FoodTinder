@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- link favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+        <link rel="manifest" href="/static/site.webmanifest">
+
+        <link href="/static/styles.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+        <script src="https://kit.fontawesome.com/1a69d5680a.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+        <title>food tinder | {% block title %}{% endblock %}</title>
+
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-md navbar-light border">
+            <a class="navbar-brand" href="/"><i class="fas fa-pizza-slice"></i><span class="red">food tinder</span></a>
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                {% if session.user_id %}
+                    <ul class="navbar-nav ml-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/favorites">My Favorites</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+                    </ul>
+                {% else %}
+                    <ul class="navbar-nav ml-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+                    </ul>
+                {% endif %}
+            </div>
+        </nav>
+
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+
+    <script>
+        $(document).ready(function() {
+            // recipe details are hidden first and shown/hidden again when arrow is clicked
+            $('.description').hide();
+            $('i.fas.fa-chevron-down').on('click', function () {
+                $('.description').toggle();
+                $('i.fas.fa-chevron-down').toggleClass('flip');
+            });
+
+            // click on buttons submits the form and makes post request
+            // delayed for 300 milliseconds so that the like or nope stamp gets visible
+            setTimeout(function(){
+                $('.swipe-buttons i').on('click', function () {
+                    $('form').submit();
+                });
+            }, 300);
+
+            // dislike stamp appears when dislike button gets clicked
+            $('#dislike').on('click', function() {
+                $('.nope-stamp p').css({"color": "rgb(240, 89, 106)", "border": "8px solid rgb(240, 89, 106)"});
+            });
+
+            // like stamp appear when like button gets clicked
+            // this event makes that a function in python gets called / sending ajax request to /like
+            $(function() {
+                $('#like').on('click', function(e) {
+                    e.preventDefault();
+                    $('.like-stamp p').css({"color": "rgb(28, 232, 147)", "border": "8px solid rgb(28, 232, 147)"});
+                    $.getJSON('/like',
+                        function(data) {
+                    });
+                    return false;
+                });
+            });
+        });
+    </script>
+    </body>
+
+</html>
