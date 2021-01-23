@@ -39,6 +39,10 @@ $ export API_KEY=09a737aad0d64a409d2fbb7d0a7861cd
 $ flask run
 ```
 
+## Demonstration Video
+
+[YouTube](https://youtu.be/6pqiYTB2pPA)
+
 ## License & copyright
 
 © Stefanie Beyer, Berlin, Germany
