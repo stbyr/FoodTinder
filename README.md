@@ -2,11 +2,9 @@
 
 Food Tinder is a web application that I made as the final project for the CS50 Introduction to Computer Science course from Harvard University.
 
-The app runs on a web Python server, using the Python framework Flask. The project uses a SQLite database to store user information and includes HTML, CSS and JavaScript / jQuery.
+The app runs on a web Python server, using the Python framework Flask. The project uses a SQLite database to store user information and includes HTML, CSS and JavaScript / jQuery. The programme uses data from an API called spoonacular that holds a lot of recipes with very detailed information.
 
-The user gets suggestions for recipes, based on some diet or preferences that they indicated. The programme uses data from an API called spoonacular that holds a lot of recipes and very detailed information about these recipes.
-
-At first, the user has to register or login. The username and the hashed password are stored in the database, in a table called users. After registering, the new user gets asked if they have any special diet (vegetarian, vegan, dairy free etc). The user gets recipe suggestions, he can choose to like or dislike them. The liked recipes are stored in a personal library on the page "my favorites".
+At first, the user has to register or login. The username and the hashed password are stored in SQLite database. After logging in or registering, the user gets asked if they have any special diet (vegetarian, vegan, dairy free etc). The user receives recipe suggestions, they can choose to like or dislike them. The liked recipes are stored in a personal library on the page "my favorites".
 
 ## API Reference
 
@@ -15,7 +13,7 @@ At first, the user has to register or login. The username and the hashed passwor
 
 ## Requirements
 
-Python 3.0 or above
+Python 3.0 or above.
 Create a profile at [https://spoonacular.com/food-api](https://spoonacular.com/food-api/) and create your own API Key. 
 
 
@@ -39,10 +37,12 @@ $ export API_KEY=09a737aad0d64a409d2fbb7d0a7861cd
 $ flask run
 ```
 
-## Demonstration Video
+## Video demonstration
 
-[YouTube](https://youtu.be/6pqiYTB2pPA)
+Click here for a short video demonstration of the app:
+
+[![Watch the video](https://img.youtube.com/vi/CWYAH6WVfMo/maxresdefault.jpg)](https://www.youtube.com/watch?v=CWYAH6WVfMo)
 
 ## License & copyright
 
-© Stefanie Beyer, Berlin, Germany
+A starter code for the backend server was provided for a previous project in the CS50 course ("Finance"). This code was reused and altered for the purpose of this project. All frontend code as well as the logic concerning the SQLite database and the "spoonacular" API were written by Stefanie Beyer, Berlin 2020.
